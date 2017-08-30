@@ -3,7 +3,7 @@
 > A Quasar application providing comprehensive information about fishing in Michigan 
 
 #### features
-Currently only displayed fish species found in Michigan along with descriptions and images of each fish
+Currently displays fish species found in Michigan along with descriptions and images of each fish
 
 ## To run locally
 

@@ -15,11 +15,11 @@
         <div slot="subtitle">Providing comprehensive information about fishing in Michigan </div>
       </q-toolbar-title>
     </q-toolbar>
-    <h5>Fish native to Michigan</h5>
+    <h5>Fish found in Michigan</h5>
     <ul>
-      <li v-for="(f, key) in fish" :key="key">
-        <p>Name: {{f.commonname}} {{f.latinname === undefined ? ' ' : `(${f.latinname})`}}</p>
-        <p>{{f.narrative}}</p>
+      <li v-for="(fish, key) in fishes" :key="key">
+        <p>Name: {{fish.commonname}} {{fish.latinname === undefined ? ' ' : `(${fish.latinname})`}}</p>
+        <p>{{fish.narrative}}</p>
       </li>
     </ul>
   </q-layout>
@@ -35,14 +35,14 @@ export default {
   },
   data () {
     return {
-      fish: []
+      fishes: []
     }
   },
   methods: {
     loadFishData () {
       this.$http.get('https://data.michigan.gov/resource/gedb-8ff3.json')
         .then(res => {
-          this.fish = res.data
+          this.fishes = res.data
           console.log(res)
         })
         .catch(err => {

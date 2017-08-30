@@ -1,19 +1,19 @@
-# Quasar App
+# Fishigan
 
-> A Quasar project
+> A Quasar application providing comprehensive information about fishing in Michigan 
 
-## Build Setup
+#### features
+Currently only displayed fish species found in Michigan along with descriptions and images of each fish
+
+## To run locally
 
 ``` bash
+# clone repo
+$ git clone https://github.com/p-adams/fishigan
+
 # install dependencies
 $ npm install
 
 # serve with hot reload at localhost:8080
 $ quasar dev
 
-# build for production with minification
-$ quasar build
-
-# lint code
-$ quasar lint
-```

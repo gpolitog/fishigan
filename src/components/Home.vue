@@ -15,10 +15,11 @@
         <div slot="subtitle">Providing comprehensive information about fishing in Michigan </div>
       </q-toolbar-title>
     </q-toolbar>
-    <h5>Fish found in Michigan</h5>
+    <h5>Fish Species Found in Michigan</h5>
     <ul>
       <li v-for="(fish, key) in fishes" :key="key">
-        <p>Name: {{fish.commonname}} {{fish.latinname === undefined ? ' ' : `(${fish.latinname})`}}</p>
+        <p class="name">#{{key + 1}} Name: {{fish.commonname}} {{fish.latinname === undefined ? ' ' : `(${fish.latinname})`}}</p>
+         <img width="400px" height="200px" :src="fetchImage(key)">
         <p>{{fish.narrative}}</p>
       </li>
     </ul>
@@ -39,6 +40,9 @@ export default {
     }
   },
   methods: {
+    fetchImage (id) {
+      if (id > 0) return require(`../assets/${id}.png`)
+    },
     loadFishData () {
       this.$http.get('https://data.michigan.gov/resource/gedb-8ff3.json')
         .then(res => {
@@ -61,5 +65,14 @@ export default {
 </script>
 
 <style lang="stylus">
+ h5 {
+   text-align: center;
+ }
+ li {
+   list-style: none;
+ }
+ .name {
+   font-weight: bold;
+ }
 
 </style>

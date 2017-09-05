@@ -18,16 +18,22 @@
     <h5>Fish Species Found in Michigan</h5>
     <ul>
       <li v-for="(fish, key) in fishes" :key="key">
-        <p class="name">#{{key + 1}} Name: {{fish.commonname}} {{fish.latinname === undefined ? ' ' : `(${fish.latinname})`}}</p>
-         <img width="400px" height="200px" :src="fetchImage(key)">
-        <p>{{fish.narrative}}</p>
+        <q-card>
+          <q-card-main>
+            <div class="content">
+              <p class="name">#{{key + 1}} Name: {{fish.commonname}} {{fish.latinname === undefined ? ' ' : `(${fish.latinname})`}}</p>
+              <img width="400px" height="200px" :src="fetchImage(key)">
+              <p>{{fish.narrative}}</p>
+            </div>
+          </q-card-main>
+        </q-card>
       </li>
     </ul>
   </q-layout>
 </template>
 
 <script>
-import {QToolbar, QToolbarTitle, QIcon, QBtn, QLayout} from 'quasar'
+import {QToolbar, QToolbarTitle, QIcon, QBtn, QLayout, QCard} from 'quasar'
 
 export default {
   name: 'home',
@@ -59,7 +65,8 @@ export default {
     QToolbarTitle,
     QIcon,
     QBtn,
-    QLayout
+    QLayout,
+    QCard
   }
 }
 </script>
@@ -73,6 +80,9 @@ export default {
  }
  .name {
    font-weight: bold;
+ }
+ .content {
+   padding: 20px;
  }
 
 </style>
